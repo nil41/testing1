@@ -181,6 +181,7 @@
         "ApplicationName" : {
           "Ref" : "DemoApplication"
         },
+		 "DeploymentGroupName" : "jenkinsDGN",
 		
         "ServiceRoleArn" : {
           "Fn::GetAtt" : [ "CodeDeployTrustRole", "Arn" ]
