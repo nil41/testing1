@@ -206,6 +206,28 @@
     "URL" : {
       "Description" : "URL of the website",
       "Value" :  { "Fn::Join" : [ "", [ "http://", { "Fn::GetAtt" : [ "ApplicationLoadBalancer", "DNSName" ]}]]}
-    }
+    },
+	
+	
+	 "CodeDeployApplicationName" : {
+      "Description" : "CodeDeploy Application Name",
+      "Value" : {
+        "Ref" : "DemoApplication"
+      }
+    },
+	
+	
+	
+	
+	
+    "CodeDeployDeploymentGroup" : {
+      "Description" : "CodeDeploy Deployment Group Name",
+      "Value" : {
+        "Ref" : "DemoFleet"
+      }
+    },
+	
+	
+	
   }
 }
