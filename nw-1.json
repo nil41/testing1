@@ -7,7 +7,7 @@
     "VpcId" : {
       "Type" : "AWS::EC2::VPC::Id",
       "Description" : "VPC",
-      "ConstraintDescription" : "Enter VPC Id of an existing Virtual Private Cloud."
+      "ConstraintDescription" : "Enter VPC Id of an existing Virtual Private Cloud (VPC)."
     },
 
     "Subnets" : {
