@@ -143,7 +143,60 @@
         } ],
         "VpcId" : { "Ref" : "VpcId" }
       }
-    }
+    },
+	
+	
+	"CodeDeployTrustRole" : {
+      "Type" : "AWS::IAM::Role",
+      "Properties" : {
+        "AssumeRolePolicyDocument" : {
+          "Version" : "2008-10-17",
+          "Statement" : [ {
+            "Sid" : "1",
+            "Effect" : "Allow",
+            "Principal" : {
+              "Service" : "codedeploy.amazonaws.com"
+            },
+            "Action" : "sts:AssumeRole"
+          } ]
+        },
+        "Path" : "/"
+      }
+    },
+	
+	
+	
+	  "DemoApplication" : {
+      "Type" : "AWS::CodeDeploy::Application",
+	   "Properties" : {
+               "ApplicationName" : "jenkinsAN"
+                   }
+    },
+	
+	
+	"DemoFleet" : {
+      "Type" : "AWS::CodeDeploy::DeploymentGroup",
+      "Properties" : {
+	  
+        "ApplicationName" : {
+          "Ref" : "DemoApplication"
+        },
+		
+        "ServiceRoleArn" : {
+          "Fn::GetAtt" : [ "CodeDeployTrustRole", "Arn" ]
+        }
+		
+  	  }
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
   },
   
   
